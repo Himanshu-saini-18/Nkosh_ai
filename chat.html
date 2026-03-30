@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nkosh Kisaan Ai | Kisano Ka Digital Saarthi</title>
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/chat-ui.css" />
+  </head>
+
+  <body class="chat-body">
+    <nav class="navbar glass-nav sticky-top">
+      <div class="container d-flex align-items-center justify-content-between py-2">
+        <a href="kisaan.ai.html" class="icon-btn">
+          <i class="bi bi-arrow-left"></i>
+        </a>
+
+        <div class="brand-center text-center">
+          <div class="logo-ring">
+            <img src="assets/logo.png" alt="Nkosh Logo" />
+          </div>
+          <div class="brand-name">Nkosh Kisaan Ai</div>
+          <div class="brand-sub">Kisano Ka Digital Saarthi</div>
+        </div>
+
+        <a href="#" id="authBtn" class="icon-btn" aria-label="auth">
+          <i id="authIcon" class="bi bi-person"></i>
+        </a>
+      </div>
+    </nav>
+
+    <main class="container py-4 chat-wrapper">
+      <div class="chat-card">
+        <div class="chat-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+          <div class="ai-badge">
+            <i class="bi bi-stars"></i> AI Powered
+          </div>
+
+          <img src="assets/nkoshlogo.png" class="header-logo" alt="Nkosh" />
+        </div>
+
+        <div id="chatBox" class="chat-box">
+          <div class="mb-2 text-start">
+            <div class="d-inline-block px-3 py-2 rounded-4 chat-bubble bot">
+              👋 Namaste! Main Nkosh Kisaan Ai hoon. Aap crop, mandi rate, fertilizer ya farming se related sawal pooch sakte hain.
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-area d-flex align-items-center gap-2">
+          <input
+            id="userInput"
+            class="form-control chat-input"
+            placeholder="Ask anything about farming..."
+          />
+
+          <button id="clearChatBtn" class="btn btn-outline-danger rounded-circle" type="button" title="Clear Chat">
+            <i class="bi bi-trash3"></i>
+          </button>
+
+          <button id="sendBtn" class="send-btn" type="button">
+            <i class="bi bi-send-fill"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <div
+      class="modal fade"
+      id="trialOverModal"
+      tabindex="-1"
+      aria-labelledby="trialOverModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="trialOverModalLabel">Free Trial Over</h5>
+          </div>
+
+          <div class="modal-body">
+            Your Free Trial Is Over. Please Login To Continue Using Nkosh Saarthi.
+          </div>
+
+          <div class="modal-footer">
+            <button id="goLoginBtn" type="button" class="btn btn-primary">
+              Go To Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="trial.js"></script>
+    <script src="chat.js"></script>
+
+    <script>
+      (function () {
+        const authBtn = document.getElementById("authBtn");
+        const authIcon = document.getElementById("authIcon");
+        const token = localStorage.getItem("nk_token");
+
+        if (token) {
+          authIcon.className = "bi bi-box-arrow-right";
+          authBtn.title = "Logout";
+
+          authBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            localStorage.removeItem("nk_token");
+            localStorage.removeItem("nk_farmerId");
+            localStorage.removeItem("nk_name");
+            localStorage.removeItem("nk_phone");
+            window.location.href = "login.html";
+          });
+        } else {
+          authIcon.className = "bi bi-person";
+          authBtn.title = "Login";
+
+          authBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            localStorage.setItem("nk_redirect_after_login", "chat.html");
+            window.location.href = "login.html";
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

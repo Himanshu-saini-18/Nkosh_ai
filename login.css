@@ -1,0 +1,175 @@
+.nk-login-premium {
+  border-radius: 22px;
+  border: 1px solid rgba(239, 231, 231, 0.08);
+  background: linear-gradient(
+    180deg,
+    rgba(247, 248, 249, 0.85),
+    rgba(175, 176, 177, 0.65)
+  );
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.nk-login-premium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      500px 250px at 20% 0%,
+      rgba(34, 197, 94, 0.2),
+      transparent 60%
+    ),
+    radial-gradient(
+      500px 250px at 80% 0%,
+      rgba(99, 102, 241, 0.18),
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+.nk-logo-ring-lg {
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  background: radial-gradient(
+      circle at 50% 50%,
+      rgba(34, 197, 94, 0.35),
+      rgba(34, 197, 94, 0.08) 60%,
+      transparent 75%
+    ),
+    rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 10px rgba(34, 197, 94, 0.12), 0 18px 40px rgba(0, 0, 0, 0.6);
+}
+
+.nk-logo-lg {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.6));
+}
+
+.nk-label {
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.nk-input {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(3, 3, 3, 0.12) !important;
+  color: #000 !important;
+  border-radius: 14px !important;
+  padding: 14px 16px;
+}
+
+.nk-input::placeholder {
+  color: rgba(86, 87, 88, 0.65);
+}
+
+.nk-input:focus {
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18) !important;
+  border-color: rgba(34, 197, 94, 0.45) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.nk-eye-btn {
+  background: rgba(1, 1, 1, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(0, 0, 0, 0.9) !important;
+  border-radius: 14px !important;
+}
+
+.nk-eye-btn:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+.nk-link {
+  color: rgba(34, 197, 94, 0.95) !important;
+  font-weight: 600;
+}
+.nk-link:hover {
+  color: rgba(16, 185, 129, 1) !important;
+  text-decoration: underline !important;
+}
+
+.nk-check {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+.nk-check:checked {
+  background-color: rgba(34, 197, 94, 1) !important;
+  border-color: rgba(34, 197, 94, 1) !important;
+}
+
+.nk-login-premium {
+  animation: fadeUp 0.6s ease;
+}
+
+.nk-btn-primary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  border: 0;
+  cursor: pointer;
+  color: #062113;
+  background: linear-gradient(180deg, #22c55e, #10b981);
+  box-shadow: 0 10px 26px rgba(34, 197, 94, 0.35),
+    0 0 0 0 rgba(34, 197, 94, 0.5);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nk-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #22c55e, #4ade80, #22c55e);
+  opacity: 0.55;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.nk-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(34, 197, 94, 0.45),
+    0 0 22px rgba(34, 197, 94, 0.35);
+}
+
+.nk-btn-primary:active {
+  transform: scale(0.98);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+}
+
+.nk-btn-primary i {
+  transition: transform 0.25s ease;
+}
+.nk-btn-primary:hover i {
+  transform: translateX(4px);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
