@@ -338,7 +338,30 @@ async function callDeepSeek(messages) {
 
   return data?.choices?.[0]?.message?.content?.trim() || "No Response Received";
 }
+// TOP CARD SWITCH
+const cards = document.querySelectorAll(".feature-card");
+const boxes = document.querySelectorAll(".question-box");
 
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+
+    cards.forEach(c => c.classList.remove("active"));
+    boxes.forEach(b => b.classList.remove("active"));
+
+    card.classList.add("active");
+
+    const target = card.getAttribute("data-target");
+    document.getElementById(target).classList.add("active");
+
+  });
+});
+
+// QUESTION CLICK AUTO FILL
+document.querySelectorAll(".question-box li").forEach(item => {
+  item.addEventListener("click", () => {
+    document.getElementById("userInput").value = item.innerText;
+  });
+});
 /* =======================
    Trim Conversation
 ======================= */
@@ -436,7 +459,39 @@ userInput?.addEventListener("keypress", (e) => {
     sendMessage();
   }
 });
+// FEATURE CLICK → SHOW ONLY ONE BOX
+document.querySelectorAll(".feature-card").forEach(card => {
+  card.addEventListener("click", () => {
 
+    // remove active from all
+    document.querySelectorAll(".feature-card")
+      .forEach(c => c.classList.remove("active"));
+
+    // add active to clicked
+    card.classList.add("active");
+
+    // hide all boxes
+    document.querySelectorAll(".question-box")
+      .forEach(box => box.classList.add("d-none"));
+
+    // show selected
+    const target = card.getAttribute("data-target");
+    document.getElementById(target).classList.remove("d-none");
+  });
+});
+
+
+// QUESTION CLICK → AUTO SEND
+document.querySelectorAll(".question-box li").forEach(item => {
+  item.addEventListener("click", () => {
+    userInput.value = item.innerText;
+    sendMessage();
+
+    // optional: hide after click
+    document.querySelectorAll(".question-box")
+      .forEach(box => box.classList.add("d-none"));
+  });
+});
 clearChatBtn?.addEventListener("click", clearChat);
 
 /* =======================

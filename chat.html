@@ -39,41 +39,101 @@
       </div>
     </nav>
 
-    <main class="container py-4 chat-wrapper">
-      <div class="chat-card">
-        <div class="chat-header d-flex align-items-center justify-content-between flex-wrap gap-2">
-          <div class="ai-badge">
-            <i class="bi bi-stars"></i> AI Powered
-          </div>
+<main class="container py-4 chat-wrapper">
 
-          <img src="assets/nkoshlogo.png" class="header-logo" alt="Nkosh" />
-        </div>
+  <!-- 🔹 TOP FEATURE CARDS -->
+  <div class="feature-grid mb-4">
 
-        <div id="chatBox" class="chat-box">
-          <div class="mb-2 text-start">
-            <div class="d-inline-block px-3 py-2 rounded-4 chat-bubble bot">
-              👋 Namaste! Main Nkosh Kisaan Ai hoon. Aap crop, mandi rate, fertilizer ya farming se related sawal pooch sakte hain.
-            </div>
-          </div>
-        </div>
+    <div class="feature-card" data-target="weatherBox">
+      ☀️ <span>Weather Forecast</span>
+    </div>
 
-        <div class="chat-input-area d-flex align-items-center gap-2">
-          <input
-            id="userInput"
-            class="form-control chat-input"
-            placeholder="Ask anything about farming..."
-          />
+    <div class="feature-card" data-target="marketBox">
+      💰 <span>Market Prices</span>
+    </div>
 
-          <button id="clearChatBtn" class="btn btn-outline-danger rounded-circle" type="button" title="Clear Chat">
-            <i class="bi bi-trash3"></i>
-          </button>
+    <div class="feature-card" data-target="cropBox">
+      🌱 <span>Crop Advice</span>
+    </div>
 
-          <button id="sendBtn" class="send-btn" type="button">
-            <i class="bi bi-send-fill"></i>
-          </button>
-        </div>
+    <div class="feature-card" data-target="pestBox">
+      🐛 <span>Pest Control</span>
+    </div>
+
+  </div>
+
+  <!-- 🔹 QUESTION SECTIONS (ALL HIDDEN DEFAULT) -->
+<div class="question-box d-none" id="weatherBox">
+  <h6>☀️ Popular Questions</h6>
+  <ul>
+    <li>How will today's weather affect farming?</li>
+    <li>Is it a good day for irrigation?</li>
+    <li>Can I spray pesticides today based on weather?</li>
+    <li>What precautions should I take due to weather today?</li>
+  </ul>
+</div>
+
+<div class="question-box d-none" id="marketBox">
+  <h6>💰 Popular Questions</h6>
+  <ul>
+    <li>Should I sell wheat today or wait?</li>
+    <li>Which crop has the best market demand now?</li>
+    <li>How can I get better price in mandi?</li>
+    <li>Is it the right time to sell paddy?</li>
+  </ul>
+</div>
+
+<div class="question-box d-none" id="cropBox">
+  <h6>🌱 Popular Questions</h6>
+  <ul>
+    <li>Which crop should I grow this season in my area?</li>
+    <li>How can I increase crop yield naturally?</li>
+    <li>What fertilizer should I use for better production?</li>
+    <li>What are common mistakes in crop farming?</li>
+  </ul>
+</div>
+
+<div class="question-box d-none" id="pestBox">
+  <h6>🐛 Popular Questions</h6>
+  <ul>
+    <li>How can I identify pest problems in crops?</li>
+    <li>What is the best way to control pests naturally?</li>
+    <li>Which pesticide should I use safely?</li>
+    <li>How to prevent diseases in crops early?</li>
+  </ul>
+</div>
+
+  <!-- 🔹 CHAT CARD -->
+  <div class="chat-card mt-4">
+
+    <div class="chat-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <div class="ai-badge">
+        <i class="bi bi-stars"></i> AI Powered
       </div>
-    </main>
+      <img src="assets/nkoshlogo.png" class="header-logo" alt="Nkosh" />
+    </div>
+
+    <div id="chatBox" class="chat-box"></div>
+
+    <div class="chat-input-area d-flex align-items-center gap-2">
+      <input
+        id="userInput"
+        class="form-control chat-input"
+        placeholder="Farming se jude sawal poochiye..."
+      />
+
+      <button id="clearChatBtn" class="btn btn-outline-danger rounded-circle">
+        <i class="bi bi-trash3"></i>
+      </button>
+
+      <button id="sendBtn" class="send-btn">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </div>
+
+  </div>
+
+</main>
 
     <div
       class="modal fade"
